@@ -1,0 +1,52 @@
+1.Create Table ApplicantDetails(
+Applicant Id -@Generated @Id PK
+Title
+First Name 
+Middle Name
+Last Name
+Father Name
+Mother Maiden Name
+Marital Status
+DOB
+Gender
+Mobile No,
+Email id,
+
+2.Address
+{
+Applicant Id -Foreign key
+Address Type-Permanent/corresspondence
+Address 
+Street
+City/Dist
+State
+Pin
+},
+
+3.NomineeDetails(
+
+Nominee Name,
+Relationship,
+DOB (condition then Guardian field should be filled)
+Guardian
+Address
+Religion
+Educational Qualifications,
+Annual Income,
+
+
+4.IDDetails(
+PAN/form 60
+Identity /Address Proof
+
+
+
+
+ background-color:linear-gradient(221deg,#c62052 0,#280071) ;
+
+
+
+
+
+
+
