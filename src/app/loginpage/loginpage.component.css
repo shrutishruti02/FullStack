@@ -1,0 +1,22 @@
+.mat-toolbar {
+    min-height: 100px !important; 
+    height: 100px !important;
+    color:primary
+  }
+  .mat-toolbar-row {
+    min-height: 50px !important; 
+    height: 50px !important;
+    border-top-color: blue;
+  }
+  .example-spacer{
+    flex: 1 1 auto;
+  }
+  .example-form {
+    min-width: 200px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }

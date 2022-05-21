@@ -1,0 +1,79 @@
+.mat-toolbar{
+    background-color:#fff;
+    
+
+}
+.img-fluid{
+    width:175px;
+    height:auto;
+    margin: 24px 0 19px 10px!important;
+    display:inline;
+   
+}
+.example-spacer {
+    
+    text-align: left;
+    margin-left: 100px;
+    color: rgba(47, 6, 105, 0.952);
+    font:bolder;
+    font-weight:700;
+  }
+  .example-small-box, .example-large-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  .example-small-box {
+    height: 100px;
+    width: 100px;
+  }
+  
+  .example-large-box {
+    height: 300px;
+    width: 300px;
+  }
+
+  .example-action-button {
+    margin-top: 8px;
+    margin-right: 8px;
+  }
+/* Set height of body and the document to 100% to enable "full page tabs" */
+body, html {
+   
+    margin: 0;
+    font-family: Arial;
+  }
+  
+  /* Style tab links */
+  .tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+  }
+  
+  .tablink:hover {
+    background-color: #777;
+  }
+  
+  /* Style the tab content (and add height:100% for full page content) */
+  .tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+  }
+  
+  #Home {background-color: red;}
+  #News {background-color: green;}
+  #Contact {background-color: blue;}
+  #About {background-color: orange;}
