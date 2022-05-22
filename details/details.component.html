@@ -1,34 +1,197 @@
-
-  <mat-toolbar >
-    <mat-toolbar-row>
+<mat-toolbar>
+  <mat-toolbar-row>
     <img class="img-fluid" src="assets/yonosbilogo.png" alt="yonosbilogo">
     <span class="example-spacer">Online Registration</span>
   </mat-toolbar-row>
-  </mat-toolbar>
-  <nav mat-tab-nav-bar [backgroundColor]="background" [tabPanel]="tabPanel">
-    <a mat-tab-link *ngFor="let link of links"
-       (click)="activeLink = link"
-       [active]="activeLink == link"> {{link}} </a>
-    <a mat-tab-link disabled>Disabled Link</a>
-  </nav>
+</mat-toolbar>
 
-  <mat-tab-nav-panel #tabPanel>
-    <form class="example-form">
+<!-- Account Details Tab -->
+
+ <body class="mat-typography mat-app-background">
+  <mat-tab-group [backgroundColor]="background">
+    <mat-tab> 
+      <!-- <ng-template mat-tab-label>Personal Details</ng-template> 
+      <div class="example-container">
+      <table class ="example-full-width" border="red" cellspacing="10">
+        <tr>Account Details</tr>
+        <tr>
+          <td><input type="text">Accountype</td>
+          <td><input type="text" >status</td>
+        </tr>
+      </table>
+      </div> -->
+    <!-- </mat-tab> -->
+     <ng-template mat-tab-label>Personal Details</ng-template> 
+      <div class="example-container">
+       <!-- <form class="example-form">  -->
+        <table class="example-full-width" cellspacing="10">
+          <tr>Personal Details</tr>
+        <mat-form-field class="example-full-width"  appearance="fill">
+          <input matInput placeholder="Company (disabled)" disabled value="Google">
+        </mat-form-field>
+      </table>
+        <table class="example-full-width" cellspacing="10">
+          <tr>
+            <div class="div-text"> Account Details</div>
+          </tr>
+          <tr>
+            
+              <mat-form-field class="example-field-width"  appearance="fill">
+                <mat-select placeholder="Title" formControlName="Title">
+                  <mat-option value="Mr.">Mr.</mat-option>
+                  <mat-option value="Ms.">Ms.</mat-option>
+                </mat-select>
+              </mat-form-field>
+             
+
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-field-width"  appearance="fill">
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="First name">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-field-width" appearance="fill">
+                <input matInput placeholder="Long Last Name That Will Be Truncated">
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <p>
+          <mat-form-field class="example-field-width " appearance="fill">
+            <textarea matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
+          </mat-form-field>
+          <mat-form-field  appearance="fill">
+            <textarea matInput placeholder="Address 2"></textarea>
+          </mat-form-field>
+        </p>
+
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-field-width "appearance="fill">
+                <input matInput placeholder="City">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-field-width" appearance="fill">
+                <input matInput placeholder="State">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-field-width" appearance="fill">
+                <input matInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
+                <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+              </mat-form-field>
+            </td>
+          </tr>
+          <!-- <tr>
+            <td>
+              <mat-form-field appearance="fill">
+              <button class="yn-button">Back</button>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field appearance="fill">
+              <button class="yn-button">Proceed</button> 
+              </mat-form-field>
+            </td>
+          </tr> -->
+        </table>
+      </div>
+    </mat-tab>
+    <!-- /*KYC Details*/ -->
+
+
+
+
+
+
+
+    <mat-tab>
+      <ng-template mat-tab-label>KYC Details</ng-template>
+      <div class="container-fluid">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <input matInput placeholder="Company (disabled)" disabled value="Google">
+        </mat-form-field>
+        <table class="example-full-width" cellspacing="10">
+          <tr>
+            <div style="font:bold"> Account Details</div>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="First name">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <input matInput placeholder="Long Last Name That Will Be Truncated">
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <p>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <textarea matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Address 2"></textarea>
+          </mat-form-field>
+        </p>
+
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <input matInput placeholder="City">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <input matInput placeholder="State">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <input matInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
+                <mat-hint align="end">{{postalCode.value.length}}/ 5</mat-hint>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </mat-tab>
+
+    <!-- Additional Details -->
+    <mat-tab>
+      <ng-template mat-tab-label>Additional Details</ng-template>
+      <form class="example-form">
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Company (disabled)" disabled value="Google">
         </mat-form-field>
-      
-        <table class="example-full-width" cellspacing="0">
-            <tr>
-                <div style="font:bold" > Account Details</div>
-          <td><mat-form-field class="example-full-width">
-            <input matInput placeholder="First name">
-          </mat-form-field></td>
-          <td><mat-form-field class="example-full-width">
-            <input matInput placeholder="Long Last Name That Will Be Truncated">
-          </mat-form-field></td>
-        </tr></table>
-      
+        <table class="example-full-width" cellspacing="10">
+          <tr>
+            <div style="font:bold"> Account Details</div>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="First name">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Long Last Name That Will Be Truncated">
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
         <p>
           <mat-form-field class="example-full-width">
             <textarea matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
@@ -37,19 +200,148 @@
             <textarea matInput placeholder="Address 2"></textarea>
           </mat-form-field>
         </p>
-      
-        <table class="example-full-width" cellspacing="0"><tr>
-          <td><mat-form-field class="example-full-width">
-            <input matInput placeholder="City">
-          </mat-form-field></td>
-          <td><mat-form-field class="example-full-width">
-            <input matInput placeholder="State">
-          </mat-form-field></td>
-          <td><mat-form-field class="example-full-width">
-            <input matInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
-            <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
-          </mat-form-field></td>
-        </tr></table>
+
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="City">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="State">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
+                <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
       </form>
-      
-  </mat-tab-nav-panel>
+    </mat-tab>
+    <!-- Nomination Details -->
+    <mat-tab>
+      <ng-template mat-tab-label>Nomination Details</ng-template>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Company (disabled)" disabled value="Google">
+        </mat-form-field>
+        <table class="example-full-width" cellspacing="10">
+          <tr>
+            <div style="font:bold"> Account Details</div>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="First name">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Long Last Name That Will Be Truncated">
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <p>
+          <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Address 2"></textarea>
+          </mat-form-field>
+        </p>
+
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="City">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="State">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
+                <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </mat-tab>
+    <!-- Review -->
+    <mat-tab>
+      <ng-template mat-tab-label>Preview</ng-template>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Company (disabled)" disabled value="Google">
+        </mat-form-field>
+        <table class="example-full-width" cellspacing="10">
+          <tr>
+            <div style="font:bold"> Account Details</div>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="First name">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Long Last Name That Will Be Truncated">
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <p>
+          <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Address 2"></textarea>
+          </mat-form-field>
+        </p>
+
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="City">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="State">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
+                <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </mat-tab>
+    <!-- Submit -->
+    <mat-tab>
+      <form class="example-form">
+        <div align="center">
+          <img src="assets/success.jpg" alt="success" style="height: 50px;width: 50px;">
+        </div>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
+</body>
