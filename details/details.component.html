@@ -5,7 +5,7 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<!-- Account Details Tab -->
+<!-------------------------------------------- Account Details Tab -------------------------------------------------->
 
 <body class="mat-typography mat-app-background">
   <mat-tab-group [backgroundColor]="background">
@@ -49,14 +49,14 @@
 
           <tr>
             <td>
-              <mat-form-field class="example-field-width" appearance="fill">
+              <mat-form-field class="example-field-width">
                 <mat-label>Maiden Name(if any)</mat-label>
                 <input matInput placeholder="Maiden Name">
               </mat-form-field>
             </td>
             <td>
-              <mat-form-field class="example-field-width" appearance="fill">
-                <input matInput [matDatepicker]="picker" placeholder="DOB " class="example-field-width">
+              <mat-form-field class="example-field-width" >
+                <input matInput [matDatepicker]="picker" placeholder="Date of Birth " class="example-field-width">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
@@ -96,7 +96,7 @@
             </td>
           <tr>
             <td>
-              <mat-form-field class="example-field-width" appearance="fill">
+              <mat-form-field class="example-field-width">
                 <mat-label>Aadhar No(optional)</mat-label>
                 <input matInput placeholder="Aadhar No">
               </mat-form-field>
@@ -142,429 +142,406 @@
               </mat-form-field>
             </td>
           </tr>
-          <tr>
-            <td>
-              <button mat-raised-button class="yn-button">Back</button>                
-              </td>
-            <td class="btn-stl">
-              <button mat-raised-button class="yn-button">Proceed</button>
-             </td>
-          </tr>
-        </table>
+          </table>
+        <div class="outer">
+          <div class="inner"><button mat-raised-button class="yn-button">Back</button></div>              
+          <div class="inner"><button mat-raised-button class="yn-button">Proceed</button> </div>
+          </div>
         </div>
+        
     </mat-tab>
-    <!-- /*KYC Details*/ -->
+    <!-- /*-------------------------------------------KYC Details*/ ----------------------------------------------------------------------------------------->
     <mat-tab label="KYC Details">
       <ng-template mat-tab-label>KYC Details</ng-template>
       <div class="example-container">
         <table class="example-full-width" cellspacing="10">
           <tr>
-            <div class="div-text"> KYC Details</div>
+            <div class="div-text"> KYC Details</div><br/><br/>
+            <div class="div-text">Proof of Identity/Address</div>
           </tr>
           <tr>
             <td>
-              <mat-form-field class="example-field-width" appearance="fill">
-                <mat-label>First Name</mat-label>
-                <input matInput placeholder="First name">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="example-field-width" appearance="fill">
-                <mat-label>Middle Name</mat-label>
-                <input matInput placeholder="Middle name">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="example-field-width" appearance="fill">
-                <mat-label>Last Name</mat-label>
-                <input matInput placeholder="Last Name">
-              </mat-form-field>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <mat-form-field class="example-field-width" appearance="fill">
-                <mat-label>Maiden Name(if any)</mat-label>
-                <input matInput placeholder="Maiden Name">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="example-field-width" appearance="fill">
-                <input matInput [matDatepicker]="picker" placeholder="DOB " class="example-field-width">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="example-field-width" appearance="fill">
-                <mat-select placeholder="Gender">
-                  <mat-option value="Male">Male</mat-option>
-                  <mat-option value="Female">Female</mat-option>
-                  <mat-option value="Transgender">Transgender</mat-option>
+               <mat-form-field class="example-field-width" appearance="fill">
+                <mat-select placeholder="ID Type">
+                  <mat-option value="Passport">Passport</mat-option>
+                  <mat-option value=" Driving licence"> Driving licence</mat-option>
+                  <mat-option value="PAN Card">PAN Card</mat-option>
+                  <mat-option value="NREGA JOB CARD"> NREGA JOB Card</mat-option>
+                  <mat-option value="Aadhar Card">AADHAR Card</mat-option>
                 </mat-select>
               </mat-form-field>
             </td>
-          </tr>
-          <tr>
             <td>
-              <mat-form-field class="example-field-width" appearance="fill">
-                <mat-label>Place of Birth</mat-label>
-                <input matInput placeholder="Place of Birth">
+                <mat-form-field class="example-field-width" appearance="fill">
+                <mat-label>ID Number</mat-label>
+                <input matInput placeholder="ID Number">
               </mat-form-field>
             </td>
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
-                <mat-label>Country of Birth</mat-label>
-                <input matInput placeholder="Country of Birth">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="example-field-width" appearance="fill">
-                <mat-select placeholder="Marital Status">
-                  <mat-option value="Married">Married</mat-option>
-                  <mat-option value="Single">Single</mat-option>
-                  <mat-option value="Divorced">Divorced</mat-option>
-                  <mat-option value="Widowed">Widowed</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </td>
-          <tr>
-            <td>
-              <mat-form-field class="example-field-width" appearance="fill">
-                <mat-label>Aadhar No(optional)</mat-label>
-                <input matInput placeholder="Aadhar No">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="example-field-width" appearance="fill">
-                <mat-label>Mobile No(optional)</mat-label>
-                <input matInput placeholder="Mobile No">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="example-field-width" appearance="fill">
-                <mat-label>Email ID</mat-label>
-                <input matInput placeholder="Email ID">
+                <mat-label>Issued on(dd/mm/yyyy)</mat-label>
+                <input matInput placeholder="Issued on(dd/mm/yyyy)">
               </mat-form-field>
             </td>
           </tr>
           <tr>
-            <div class="div-text"> Additional Personal Details
-              <br><br>Father's name
+            <div class="div-text"> PAN Details(Optional)</div>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-field-width" appearance="fill">
+                <mat-label>PAN No.</mat-label>
+                <input matInput placeholder="PAN No.">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-field-width" appearance="fill">
+                <mat-label>Name on PAN</mat-label>
+                <input matInput placeholder="Name on PAN">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-checkbox>The name on PAN is same as that of ID Proof</mat-checkbox>
+            </td>
+          </tr>
+          <tr>
+            <div class="div-text"> Address Details</div>
+            <div class="div-lttext">Address Details as per proof provided</div>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-field-width" appearance="fill">
+                <mat-label>Flat/House No./Floor/Building</mat-label>
+                <input matInput placeholder="Flat/House No./Floor/Building">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-field-width" appearance="fill">
+                <mat-label>Colony/Street/Locality</mat-label>
+                <input matInput placeholder="Colony/Street/Locality">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-field-width" appearance="fill">
+                <mat-label>City/Town/ District</mat-label>
+                <input matInput placeholder="City/Town/ District">
+              </mat-form-field>
+            </td>
+          <tr>
+            <td>
+              <mat-form-field class="example-field-width" appearance="fill">
+                <mat-label>State</mat-label>
+                <input matInput placeholder="State">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-field-width" appearance="fill">
+                <mat-label>Pincode/Zipcode (Optional)</mat-label>
+                <input matInput placeholder="Pincode/Zipcode (Optional)">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-field-width" appearance="fill">
+                <mat-label>Country</mat-label>
+                <input matInput placeholder="Country">
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-checkbox>Permanent address is same as Current Address
+              <p class="div-lttext">In such case , no separate proof of address is required</p>
+            </mat-checkbox>
+            </td>
+            </tr>
+            <tr>
+            <div class="div-text">Address of Correspondence
+              <p class="div-lttext">Cheque Book and ATM card will be delivered at correspondence address</p>
+              <mat-radio-group aria-label="Select an option">
+                <mat-radio-button color="primary"value="1">Current Address</mat-radio-button>
+                <p>
+                <mat-radio-button color="primary" value="2">Permanent Address</mat-radio-button></p>
+              </mat-radio-group>
             </div>
           </tr>
-          <tr>
-            <td>
-              <mat-form-field class="example-field-width" appearance="fill">
-                <mat-label>First Name</mat-label>
-                <input matInput placeholder="First name">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="example-field-width" appearance="fill">
-                <mat-label>Middle Name(Opional)</mat-label>
-                <input matInput placeholder="Middle name">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="example-field-width" appearance="fill">
-                <mat-label>Last Name</mat-label>
-                <input matInput placeholder="Last Name">
-              </mat-form-field>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p class="div-text">Mother's Name</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <mat-form-field class="example-field-width" appearance="fill">
-                <mat-label>First Name</mat-label>
-                <input matInput placeholder="First name">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="example-field-width" appearance="fill">
-                <mat-label>Middle Name(Optional)</mat-label>
-                <input matInput placeholder="Middle name">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="example-field-width" appearance="fill">
-                <mat-label>Last Name</mat-label>
-                <input matInput placeholder="Last Name">
-              </mat-form-field>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p class="div-text">Spouse's Name</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <mat-form-field class="example-field-width" appearance="fill" >
-                <mat-label>First Name</mat-label>
-                <input matInput placeholder="First name">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="example-field-width" appearance="fill">
-                <mat-label>Middle Name(Optional)</mat-label>
-                <input matInput placeholder="Middle name">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="example-field-width" appearance="fill">
-                <mat-label>Last Name</mat-label>
-                <input matInput placeholder="Last Name">
-              </mat-form-field>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <button mat-raised-button class="yn-button">Back</button>                
-              </td>
-            <td class="btn-stl">
-              <button mat-raised-button class="yn-button">Proceed</button>
-             </td>
-          </tr>
-        </table>
-        </div>
+          </table>
+          <div class="outer">
+            <div class="inner"><button mat-raised-button class="yn-button">Back</button></div>              
+            <div class="inner"><button mat-raised-button class="yn-button">Proceed</button> </div>
+            </div>
+          </div>
     </mat-tab>
-
-
-
-
-
-    <!--  -->
-    <!-- <mat-tab>
-      <ng-template mat-tab-label>KYC Details</ng-template>
-      <div class="container-fluid">
-        <mat-form-field class="example-full-width" appearance="fill">
-          <input matInput placeholder="Company (disabled)" disabled value="Google">
-        </mat-form-field>
-        <table class="example-full-width" cellspacing="10">
-          <tr>
-            <div style="font:bold"> Account Details</div>
-          </tr>
-          <tr>
-            <td>
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="First name">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="example-full-width" appearance="fill">
-                <input matInput placeholder="Long Last Name That Will Be Truncated">
-              </mat-form-field>
-            </td>
-          </tr>
-        </table>
-
-        <p>
-          <mat-form-field class="example-full-width" appearance="fill">
-            <textarea matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <textarea matInput placeholder="Address 2"></textarea>
-          </mat-form-field>
-        </p>
-
-        <table class="example-full-width" cellspacing="0">
-          <tr>
-            <td>
-              <mat-form-field class="example-full-width" appearance="fill">
-                <input matInput placeholder="City">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="example-full-width" appearance="fill">
-                <input matInput placeholder="State">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="example-full-width" appearance="fill">
-                <input matInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
-                <mat-hint align="end">{{postalCode.value.length}}/ 5</mat-hint>
-              </mat-form-field>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </mat-tab> -->
-
-    <!-- Additional Details -->
+    <!-- ---------------------------Additional Details ---------------------------------------------------------------->
     <mat-tab>
       <ng-template mat-tab-label>Additional Details</ng-template>
-      <form class="example-form">
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Company (disabled)" disabled value="Google">
-        </mat-form-field>
+      <div class="example-container">
         <table class="example-full-width" cellspacing="10">
           <tr>
-            <div style="font:bold"> Account Details</div>
+         <p class="div-text"> Services Required</p><br>
+         
           </tr>
           <tr>
             <td>
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="First name">
+              <div class="div-text">Internet Banking</div>
+              <mat-form-field class="example-field-width" appearance="fill">
+                <mat-select placeholder="Internet banking Rights">
+                  <mat-option value="Full Rights">Full Rights</mat-option>
+                  <mat-option value="Limited Rights">Limited Rights</mat-option>
+                  <mat-option value="View Only Rights">View Rights</mat-option>
+                  </mat-select>
               </mat-form-field>
             </td>
             <td>
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="Long Last Name That Will Be Truncated">
-              </mat-form-field>
+              <mat-label>Receive SMS Alerts</mat-label>
+              <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="Yes">Yes</mat-radio-button>
+                <mat-radio-button value="No">No</mat-radio-button>
+              </mat-radio-group>
             </td>
-          </tr>
-        </table>
-
-        <p>
-          <mat-form-field class="example-full-width">
-            <textarea matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <textarea matInput placeholder="Address 2"></textarea>
-          </mat-form-field>
-        </p>
-
-        <table class="example-full-width" cellspacing="0">
+            <td>
+               <mat-label>Cheque Book</mat-label>
+               <mat-radio-group aria-label="Select an option">
+                  <mat-radio-button value="Yes">Yes</mat-radio-button>
+                  <mat-radio-button value="No">No</mat-radio-button>
+                </mat-radio-group>
+              </td>
+              </tr>
           <tr>
             <td>
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="City">
-              </mat-form-field>
+              <mat-label>Debit Card</mat-label>
+              <mat-radio-group aria-label="Select an option">
+                 <mat-radio-button value="Yes">Yes</mat-radio-button>
+                 <mat-radio-button value="No">No</mat-radio-button>
+               </mat-radio-group>
+             
             </td>
             <td>
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="State">
-              </mat-form-field>
+               <mat-label>Card Type</mat-label>
+                <mat-label>Domestic</mat-label>
+            
             </td>
             <td>
-              <mat-form-field class="example-full-width">
-                <input matInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
-                <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+              <mat-label>Name as would appear on Card</mat-label>
+              <mat-form-field class="example-field-width" appearance="fill">
+                
+                <input matInput placeholder="Name">
               </mat-form-field>
             </td>
           </tr>
-        </table>
-      </form>
+          </table>
+          <div class="outer">
+            <div class="inner"><button mat-raised-button class="yn-button">Back</button></div>              
+            <div class="inner"><button mat-raised-button class="yn-button">Proceed</button> </div>
+            </div>
+          </div>
     </mat-tab>
-    <!-- Nomination Details -->
+    <!-- ---------------------------------Nomination Details=-------------------------------------------------------------- -->
     <mat-tab>
       <ng-template mat-tab-label>Nomination Details</ng-template>
-      <form class="example-form">
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Company (disabled)" disabled value="Google">
-        </mat-form-field>
+      <div class="example-container">
         <table class="example-full-width" cellspacing="10">
-          <tr>
-            <div style="font:bold"> Account Details</div>
+           <tr>
+            <td>
+              <mat-label>Nominee Required</mat-label>
+              <mat-radio-group aria-label="Select an option">
+                <mat-radio-button color="primary"value="Yes">Yes</mat-radio-button>
+                <mat-radio-button color="primary"value="No">No</mat-radio-button>
+              </mat-radio-group>
+            </td>
+            </tr>
+            <tr>
+           <td>
+              <mat-form-field class="example-field-width" appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Name">
+              </mat-form-field>
+            </td>
+         
+            <td>
+              <mat-form-field class="example-field-width" appearance="fill">
+                <mat-label>Relationship with Applicant</mat-label>
+                <input matInput placeholder="Relationship with Applicant">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-field-width" appearance="fill">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput placeholder="Date of Birth">
+              </mat-form-field>
+            </td>
           </tr>
           <tr>
-            <td>
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="First name">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="Long Last Name That Will Be Truncated">
-              </mat-form-field>
-            </td>
-          </tr>
-        </table>
-
-        <p>
-          <mat-form-field class="example-full-width">
-            <textarea matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <textarea matInput placeholder="Address 2"></textarea>
-          </mat-form-field>
-        </p>
-
-        <table class="example-full-width" cellspacing="0">
+            <div class="div-text"> Nominee Address</div>
+            <mat-checkbox>Same as Applicant's address</mat-checkbox>
+          </tr> 
           <tr>
             <td>
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="City">
+              <mat-form-field class="example-field-width" appearance="fill">
+                <mat-label>Address Line 1</mat-label>
+                <input matInput placeholder="Address Line 1">
               </mat-form-field>
             </td>
             <td>
-              <mat-form-field class="example-full-width">
+              <mat-form-field class="example-field-width" appearance="fill">
+                <mat-label>Address Line 2</mat-label>
+                <input matInput placeholder="Address Line 2">
+              </mat-form-field>
+            </td>
+            <td>
+               <mat-form-field class="example-field-width" appearance="fill">
+                <mat-label>State</mat-label>
                 <input matInput placeholder="State">
               </mat-form-field>
             </td>
+          </tr>
+          <tr>
             <td>
-              <mat-form-field class="example-full-width">
-                <input matInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
-                <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+              <mat-form-field class="example-field-width" appearance="fill">
+                <mat-label>Pin Code</mat-label>
+                <input matInput placeholder="Address Line 2">
               </mat-form-field>
             </td>
-          </tr>
-        </table>
-      </form>
+            <td>
+              <mat-form-field class="example-field-width" appearance="fill">
+                <mat-label>Country</mat-label>
+                <input matInput placeholder="Country">
+              </mat-form-field>
+            </td>
+          </tr> 
+          </table>
+          <div class="outer">
+            <div class="inner"><button mat-raised-button class="yn-button">Back</button></div>              
+            <div class="inner"><button mat-raised-button class="yn-button">Proceed</button> </div>
+            </div>
+          </div>
     </mat-tab>
-    <!-- Review -->
+    
+    <!--------------------------------------------Review-------------------------------------------------------------------- -->
     <mat-tab>
       <ng-template mat-tab-label>Preview</ng-template>
-      <form class="example-form">
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Company (disabled)" disabled value="Google">
-        </mat-form-field>
+      <div class="example-container">
         <table class="example-full-width" cellspacing="10">
           <tr>
-            <div style="font:bold"> Account Details</div>
-          </tr>
-          <tr>
-            <td>
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="First name">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="Long Last Name That Will Be Truncated">
-              </mat-form-field>
-            </td>
-          </tr>
-        </table>
-
-        <p>
-          <mat-form-field class="example-full-width">
-            <textarea matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <textarea matInput placeholder="Address 2"></textarea>
-          </mat-form-field>
-        </p>
-
-        <table class="example-full-width" cellspacing="0">
-          <tr>
-            <td>
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="City">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="State">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="example-full-width">
-                <input matInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
-                <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
-              </mat-form-field>
-            </td>
-          </tr>
-        </table>
-      </form>
-    </mat-tab>
+            <div class="div-text" style="color:black">Personal Details</div>
+            </tr>
+            <tr>
+            <td><mat-label>First Name:Name</mat-label></td>
+              <td><mat-label>Middle Name:Name</mat-label></td>
+              <td><mat-label>Last Name:Name</mat-label></td>
+               </tr>
+               <tr>
+              <td><mat-label>Maiden Name(if any):Name</mat-label></td>
+              <td><mat-label>Date of Birth:Name</mat-label></td>
+              <td><mat-label>Gender:Name</mat-label></td>
+              </tr>
+              <tr>
+              <td><mat-label>Place of Birth:Name</mat-label></td>
+              <td><mat-label>Country of Birth:Name</mat-label></td>
+              <td><mat-label>Marital Status:Name</mat-label></td>
+              </tr>
+              <tr>
+              <td><mat-label>Aadhar No(optional):Name</mat-label></td>
+              <td><mat-label>Mobile No(optional):Name</mat-label></td>
+              <td><mat-label>Email ID:Name</mat-label></td>
+              </tr>
+              <hr  width="100%">
+              <tr>
+                <div class="div-text" style="color:black">Additional Personal Details</div>
+              </tr>
+              <tr>
+              <td><mat-label>Father's Name:Name</mat-label></td>
+              <td><mat-label>Mother's Name:Name</mat-label></td>
+              <td><mat-label>Spouse Name:Name</mat-label></td>
+              </tr>
+              <hr  width="100%">
+              <tr>
+                <div class="div-text" style="color:black">KYC Details</div>
+              </tr>
+              <tr>
+                <td><mat-label>ID Type:Name</mat-label></td>
+                <td><mat-label>ID Number:Name</mat-label></td>
+                <td><mat-label>Issued on(dd/mm/yyyy):Name</mat-label></td>
+                </tr>
+                <tr>
+                <td><mat-label>PAN Details:Name</mat-label></td>
+                <td><mat-label>Name on PAN:Name</mat-label></td>
+                </tr>
+                <hr  width="100%">
+                <tr>
+                  <div class="div-text" style="color:black">Address Details</div>
+              </tr>
+              <tr>
+              <td><mat-label>Flat/House No./Floor/Building:Name</mat-label></td>
+              <td><mat-label>Colony/Street/Locality:Name</mat-label></td>
+              <td><mat-label>City/Town/ District:Name</mat-label></td>
+              </tr>
+              <tr>
+              <td><mat-label>State:Name</mat-label></td>
+              <td><mat-label>Pincode:Name</mat-label></td>
+              <td><mat-label>Country:Name</mat-label></td>
+              </tr>
+              <hr  width="100%">
+              <tr>
+                <div class="div-text" style="color:black">Services Required</div>
+              <td><mat-label>Internet Banking:Name</mat-label></td>
+              <td><mat-label>Receive SMS Alerts:Name</mat-label></td>
+              </tr>
+              <tr>
+              <td><mat-label>Cheque Book:Name</mat-label></td>
+              <td><mat-label>Debit Card:Name</mat-label></td>
+              <td><mat-label>Card Type:Name</mat-label></td>
+              </tr>
+              <tr>
+              <td><mat-label>Name as would appear on Card:Name</mat-label></td>
+              </tr>
+              <hr  width="100%">
+              <tr>
+                <div class="div-text" style="color:black">Nomination Details</div>
+              
+              </tr>
+              <tr>
+              <td><mat-label>Name:Name</mat-label></td>
+              <td><mat-label>Relationship with Applicant:Name</mat-label></td>
+              <td><mat-label>Date of Birth:Name</mat-label></td>
+              </tr>
+              <tr>
+              <td><mat-label>Nominee Address Line 1:Name</mat-label></td>
+              <td><mat-label>Nominee Address Line 2:Name</mat-label></td>
+              <td><mat-label>State:Name</mat-label></td>
+              </tr>
+              <tr>
+              <td><mat-label>Pin Code:Name</mat-label></td>
+              <td><mat-label>Country:Name</mat-label></td>
+              </tr>
+              </table>
+              <div class="outer">
+                <div class="inner"><button mat-raised-button class="yn-button">Back</button></div>              
+                <div class="inner"><button mat-raised-button class="yn-button">Proceed</button> </div>
+                </div>
+              </div>
+              </mat-tab>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+          
+    
     <!-- Submit -->
     <mat-tab>
       <form class="example-form">
@@ -572,6 +549,6 @@
           <img src="assets/success.jpg" alt="success" style="height: 50px;width: 50px;">
         </div>
       </form>
-    </mat-tab>
+    </mat-tab> -->
   </mat-tab-group>
 </body>
