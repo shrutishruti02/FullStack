@@ -1,0 +1,37 @@
+.page-container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    border-color: red;
+}
+.mat-toolbar{
+    background-color: #fff;
+
+}
+.img-fluid{
+    width:175px;
+    height:auto;
+    margin: 24px 0 19px 10px!important;
+    display:inline;
+   
+}
+.float-container{
+    border: 3px solid black;
+    padding: 20px;
+    width:auto;
+    display: flex;
+    flex-direction: column;
+    background-image:(linear-gradient(221deg,#c62052 0,#280071 100%));
+    
+}
+.float-child {
+    width: 50%;
+    height:100%;
+    float: left;
+    padding: 20px;
+   
+    border: 2px black;
+    display: flex;
+    flex-direction: column;
+}
