@@ -185,3 +185,13 @@ body, html {
 .border-btm{
   border-bottom: 1px solid black;
 }
+.success-padding{
+  align-self:center; 
+  text-align:center;
+   color:black;
+   font:bold;
+   font-weight:700;
+   font-family:inherit;
+   font-size: 18px;
+
+}

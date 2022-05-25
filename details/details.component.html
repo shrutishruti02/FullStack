@@ -8,9 +8,10 @@
 <!-------------------------------------------- Account Details Tab -------------------------------------------------->
 
 <body class="mat-typography mat-app-background">
+  <form [formGroup]="myForm">
   <mat-tab-group [backgroundColor]="background">
     <mat-tab label="Personal Details">
-      <ng-template mat-tab-label>Personal Details</ng-template>
+     <ng-template mat-tab-label>Personal Details</ng-template>
       <div class="example-container">
         <table class="example-full-width" cellspacing="10">
           <tr>
@@ -30,19 +31,28 @@
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>First Name</mat-label>
-                <input matInput placeholder="First name">
+                <input matInput placeholder="First name" formControlName="firstName">
+                <mat-hint align="end">Not more then 20 characters long.</mat-hint>
+                <mat-error *ngIf="myError('firstName', 'required')">Name is required</mat-error>
+                <mat-error *ngIf="myError('firstName', 'maxlength')">Exceeds Limit</mat-error>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>Middle Name</mat-label>
-                <input matInput placeholder="Middle name">
+                <input matInput placeholder="Middle name " formControlName="middleName">
+                <mat-hint align="end">Not more then 20 characters long.</mat-hint>
+                <mat-error *ngIf="myError('middleName', 'required')">Name is required</mat-error>
+                <mat-error *ngIf="myError('middleName', 'maxlength')">Exceeds Limit</mat-error>
               </mat-form-field>
             </td>
             <td>
-              <mat-form-field class="example-field-width" appearance="fill">
+              <mat-form-field class="example-field-width" appearance="fill" >
                 <mat-label>Last Name</mat-label>
-                <input matInput placeholder="Last Name">
+                <input matInput placeholder="Last Name" formControlName="lastName">
+                <mat-hint align="end">Not more then 20 characters long.</mat-hint>
+                <mat-error *ngIf="myError('middleName', 'required')">Name is required</mat-error>
+                <mat-error *ngIf="myError('middleName', 'maxlength')">Exceeds Limit</mat-error>
               </mat-form-field>
             </td>
           </tr>
@@ -56,18 +66,24 @@
             </td>
             <td>
               <mat-form-field class="example-field-width" >
-                <input matInput [matDatepicker]="picker" placeholder="Date of Birth " class="example-field-width">
+                <input matInput [matDatepicker]="picker" placeholder="Date of Birth " class="example-field-width" formControlName="dateOfBirth">
+                <mat-hint align="end">Age should not be less than 18 years</mat-hint>
+                <mat-error *ngIf="myError('dateOfBirth', 'required')">Date of Birth is required</mat-error>
+                <mat-error *ngIf="myError('dateOfBirth', 'maxlength')">Age less than 18 years</mat-error>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
+
               </mat-form-field>
             </td>
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
-                <mat-select placeholder="Gender">
+                <mat-select placeholder="Gender" formControlName="gender">
+                  
                   <mat-option value="Male">Male</mat-option>
                   <mat-option value="Female">Female</mat-option>
                   <mat-option value="Transgender">Transgender</mat-option>
                 </mat-select>
+                <mat-error *ngIf="myError('gender', 'required')">Gender is required</mat-error>
               </mat-form-field>
             </td>
           </tr>
@@ -75,13 +91,17 @@
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>Place of Birth</mat-label>
-                <input matInput placeholder="Place of Birth">
+                <input matInput placeholder="Place of Birth" formControlName="placeOfBirth">
+
+                <mat-error *ngIf="myError('placeOfBirth', 'required')">Place of Birth is required</mat-error>
+                
               </mat-form-field>
             </td>
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>Country of Birth</mat-label>
-                <input matInput placeholder="Country of Birth">
+                <input matInput placeholder="Country of Birth" formControlName="countryOfBirth">
+                <mat-error *ngIf="myError('countryOfBirth', 'required')">Country of Birth is required</mat-error>
               </mat-form-field>
             </td>
             <td>
@@ -103,14 +123,20 @@
             </td>
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
-                <mat-label>Mobile No(optional)</mat-label>
-                <input matInput placeholder="Mobile No">
+                <mat-label>Mobile No</mat-label>
+                <input matInput placeholder="Mobile No" formControlName="mobile">
+                <mat-error *ngIf="myError('mobile', 'required')">Mobile No is required</mat-error>
+                <mat-error *ngIf="myError('mobile', 'pattern')">Please enter a valid mobile number</mat-error>
+                <mat-error *ngIf="myError('mobile', 'maxLength')">Please enter a valid mobile number</mat-error>
+                <mat-error *ngIf="myError('mobile', 'minLength')">Please enter a valid mobile number</mat-error>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>Email ID</mat-label>
-                <input matInput placeholder="Email ID">
+                <input matInput placeholder="Email ID" formControlName="emailId">
+                <mat-error *ngIf="myError('emailId', 'required')">Email ID is required</mat-error>
+                <mat-error *ngIf="myError('emailId', 'email')">Please provide valid email address</mat-error>
               </mat-form-field>
             </td>
           </tr>
@@ -144,15 +170,15 @@
           </tr>
           </table>
         <div class="outer">
-          <div class="inner"><button mat-raised-button class="yn-button">Back</button></div>              
-          <div class="inner"><button mat-raised-button class="yn-button">Proceed</button> </div>
+          <div class="inner"><button mat-raised-button class="yn-button" tabindex="-1" (click)="homepage()">Back</button></div>              
+          <div class="inner"><button mat-raised-button class="yn-button"  tabindex="-1" (click)='moveToSelectedTab("KYC Details")'>Proceed</button> </div>
           </div>
         </div>
         
     </mat-tab>
     <!-- /*-------------------------------------------KYC Details*/ ----------------------------------------------------------------------------------------->
-    <mat-tab label="KYC Details">
-      <ng-template mat-tab-label>KYC Details</ng-template>
+    <mat-tab label="KYC Details" #tab [disabled]='!tab.isActive'>
+      <ng-template mat-tab-label >KYC Details</ng-template>
       <div class="example-container">
         <table class="example-full-width" cellspacing="10">
           <tr>
@@ -162,23 +188,26 @@
           <tr>
             <td>
                <mat-form-field class="example-field-width" appearance="fill">
-                <mat-select placeholder="ID Type">
+                <mat-select placeholder="ID Type" formControlName="idType">
                   <mat-option value="Passport">Passport</mat-option>
                   <mat-option value=" Driving licence"> Driving licence</mat-option>
                   <mat-option value="PAN Card">PAN Card</mat-option>
                   <mat-option value="NREGA JOB CARD"> NREGA JOB Card</mat-option>
                   <mat-option value="Aadhar Card">AADHAR Card</mat-option>
                 </mat-select>
+                <mat-error *ngIf="myError('idType', 'required')">ID Type is mandatory</mat-error>
               </mat-form-field>
             </td>
-            <td>
+            <!-- <td>
                 <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>ID Number</mat-label>
                 <input matInput placeholder="ID Number">
+                <mat-error *ngIf="myError('idNumber', 'required')">ID Number is mandatory</mat-error>
               </mat-form-field>
-            </td>
+            </td>-->
+
             <td>
-              <mat-form-field class="example-field-width" appearance="fill">
+              <mat-form-field class="example-field-width" appearance="fill" >
                 <mat-label>Issued on(dd/mm/yyyy)</mat-label>
                 <input matInput placeholder="Issued on(dd/mm/yyyy)">
               </mat-form-field>
@@ -191,7 +220,8 @@
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>PAN No.</mat-label>
-                <input matInput placeholder="PAN No.">
+                <input matInput placeholder="PAN No." >
+                <mat-error *ngIf="myError('idType', 'required')">ID Type is mandatory</mat-error>
               </mat-form-field>
             </td>
             <td>
@@ -210,40 +240,46 @@
           </tr>
           <tr>
             <td>
-              <mat-form-field class="example-field-width" appearance="fill">
+              <mat-form-field class="example-field-width" appearance="fill" >
                 <mat-label>Flat/House No./Floor/Building</mat-label>
-                <input matInput placeholder="Flat/House No./Floor/Building">
+                <input matInput placeholder="Flat/House No./Floor/Building" formControlName="addressLine1">
+                <mat-error *ngIf="myError('addressLine1', 'required')">Address is mandatory</mat-error>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>Colony/Street/Locality</mat-label>
-                <input matInput placeholder="Colony/Street/Locality">
+                <input matInput placeholder="Colony/Street/Locality" formControlName="addressLine2">
+                <mat-error *ngIf="myError('addressLine2', 'required')">Address is mandatory</mat-error>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>City/Town/ District</mat-label>
-                <input matInput placeholder="City/Town/ District">
+                <input matInput placeholder="City/Town/ District"  formControlName="city">
+                <mat-error *ngIf="myError('city', 'required')">Address is mandatory</mat-error>
               </mat-form-field>
             </td>
           <tr>
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>State</mat-label>
-                <input matInput placeholder="State">
+                <input matInput placeholder="State"  formControlName="state">
+                <mat-error *ngIf="myError('state', 'required')">Address is mandatory</mat-error>
               </mat-form-field>
             </td>
             <td>
-              <mat-form-field class="example-field-width" appearance="fill">
+              <mat-form-field class="example-field-width" appearance="fill" >
                 <mat-label>Pincode/Zipcode (Optional)</mat-label>
-                <input matInput placeholder="Pincode/Zipcode (Optional)">
+                <input matInput placeholder="Pincode/Zipcode (Optional)" formControlName="pincode">
+                <mat-error *ngIf="myError('pincode', 'required')">Pincode is required</mat-error>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>Country</mat-label>
-                <input matInput placeholder="Country">
+                <input matInput placeholder="Country"  formControlName="country">
+                <mat-error *ngIf="myError('country', 'required')">Country is required</mat-error>
               </mat-form-field>
             </td>
           </tr>
@@ -266,8 +302,8 @@
           </tr>
           </table>
           <div class="outer">
-            <div class="inner"><button mat-raised-button class="yn-button">Back</button></div>              
-            <div class="inner"><button mat-raised-button class="yn-button">Proceed</button> </div>
+            <div class="inner"><button mat-raised-button class="yn-button" tabindex="-1" (click)='moveToSelectedTab("Personal Details")'>Back</button></div>              
+            <div class="inner"><button mat-raised-button class="yn-button" tabindex="-1" (click)='moveToSelectedTab("Additional Details")'>Proceed</button> </div>
             </div>
           </div>
     </mat-tab>
@@ -284,7 +320,7 @@
             <td>
               <div class="div-text">Internet Banking</div>
               <mat-form-field class="example-field-width" appearance="fill">
-                <mat-select placeholder="Internet banking Rights">
+                <mat-select placeholder="Internet banking Rights"  formControlName="inbRights">
                   <mat-option value="Full Rights">Full Rights</mat-option>
                   <mat-option value="Limited Rights">Limited Rights</mat-option>
                   <mat-option value="View Only Rights">View Rights</mat-option>
@@ -293,14 +329,14 @@
             </td>
             <td>
               <mat-label>Receive SMS Alerts</mat-label>
-              <mat-radio-group aria-label="Select an option">
+              <mat-radio-group aria-label="Select an option" formControlName="smsAlerts">
                 <mat-radio-button value="Yes">Yes</mat-radio-button>
                 <mat-radio-button value="No">No</mat-radio-button>
               </mat-radio-group>
             </td>
             <td>
                <mat-label>Cheque Book</mat-label>
-               <mat-radio-group aria-label="Select an option">
+               <mat-radio-group aria-label="Select an option" formControlName="chequeBook">
                   <mat-radio-button value="Yes">Yes</mat-radio-button>
                   <mat-radio-button value="No">No</mat-radio-button>
                 </mat-radio-group>
@@ -309,7 +345,7 @@
           <tr>
             <td>
               <mat-label>Debit Card</mat-label>
-              <mat-radio-group aria-label="Select an option">
+              <mat-radio-group aria-label="Select an option" formControlName="debitCard">
                  <mat-radio-button value="Yes">Yes</mat-radio-button>
                  <mat-radio-button value="No">No</mat-radio-button>
                </mat-radio-group>
@@ -324,14 +360,14 @@
               <mat-label>Name as would appear on Card</mat-label>
               <mat-form-field class="example-field-width" appearance="fill">
                 
-                <input matInput placeholder="Name">
+                <input matInput placeholder="Name" formControlGroup="nameOnCard">
               </mat-form-field>
             </td>
           </tr>
           </table>
           <div class="outer">
-            <div class="inner"><button mat-raised-button class="yn-button">Back</button></div>              
-            <div class="inner"><button mat-raised-button class="yn-button">Proceed</button> </div>
+            <div class="inner"><button mat-raised-button class="yn-button" tabindex="-1" (click)='moveToSelectedTab("KYC Details")'>Back</button></div>              
+            <div class="inner"><button mat-raised-button class="yn-button" tabindex="-1" (click)='moveToSelectedTab("Nomination Details")'>Proceed</button> </div>
             </div>
           </div>
     </mat-tab>
@@ -343,7 +379,7 @@
            <tr>
             <td>
               <mat-label>Nominee Required</mat-label>
-              <mat-radio-group aria-label="Select an option">
+              <mat-radio-group aria-label="Select an option" formControlGroup="nomineeReq">
                 <mat-radio-button color="primary"value="Yes">Yes</mat-radio-button>
                 <mat-radio-button color="primary"value="No">No</mat-radio-button>
               </mat-radio-group>
@@ -353,14 +389,14 @@
            <td>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>Name</mat-label>
-                <input matInput placeholder="Name">
+                <input matInput placeholder="Name" formControlGroup="nomineeName">
               </mat-form-field>
             </td>
          
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>Relationship with Applicant</mat-label>
-                <input matInput placeholder="Relationship with Applicant">
+                <input matInput placeholder="Relationship with Applicant" formControlGroup="nomineeRel">
               </mat-form-field>
             </td>
             <td>
@@ -378,7 +414,7 @@
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>Address Line 1</mat-label>
-                <input matInput placeholder="Address Line 1">
+                <input matInput placeholder="Address Line 1" formControlGroup="nomineeAddressLine1">
               </mat-form-field>
             </td>
             <td>
@@ -410,8 +446,8 @@
           </tr> 
           </table>
           <div class="outer">
-            <div class="inner"><button mat-raised-button class="yn-button">Back</button></div>              
-            <div class="inner"><button mat-raised-button class="yn-button">Proceed</button> </div>
+            <div class="inner"><button mat-raised-button class="yn-button" tabindex="-1" (click)='moveToSelectedTab("Additional Details")'>Back</button></div>              
+            <div class="inner"><button mat-raised-button class="yn-button" tabindex="-1" (click)='moveToSelectedTab("Preview")'>Proceed</button> </div>
             </div>
           </div>
     </mat-tab>
@@ -515,40 +551,30 @@
               </tr>
               </table>
               <div class="outer">
-                <div class="inner"><button mat-raised-button class="yn-button">Back</button></div>              
-                <div class="inner"><button mat-raised-button class="yn-button">Proceed</button> </div>
+                <div class="inner"><button mat-raised-button class="yn-button" tabindex="-1" (click)='moveToSelectedTab("Nomination Details")'>Back</button></div>              
+                <div class="inner"><button mat-raised-button class="yn-button" tabindex="-1" (click)='moveToSelectedTab("Submit")'>Proceed</button> </div>
                 </div>
               </div>
               </mat-tab>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-          
-    
-    <!-- Submit -->
+     
+    <!-- -----------------------------------Submit -------------------------------------------------------------------->
     <mat-tab>
-      <form class="example-form">
+    <ng-template mat-tab-label>Submit</ng-template>
+    <div class="example-container">
+      <table class="example-full-width" cellspacing="10">
         <div align="center">
-          <img src="assets/success.jpg" alt="success" style="height: 50px;width: 50px;">
-        </div>
-      </form>
-    </mat-tab> -->
+          <img src="assets/success.png" alt="success" style="height: 50px;width: 50px;">
+        </div><div></div><div></div>
+        <div class="success-padding">Request Sent for Approval</div><br><br>
+        <div class="div-text" style="text-align:center">
+          
+          An email has been sent to your registered email address with your login credentials.<br><br>
+          Your application is under process and will take upto 3 days to be processed.<br><br>
+          You can login to check the status of your application.</div>
+      
+     </table>
+    </div>
+    </mat-tab>
   </mat-tab-group>
+  </form>
 </body>
