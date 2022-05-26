@@ -9,8 +9,8 @@
 
 <body class="mat-typography mat-app-background">
   <form [formGroup]="myForm">
-  <mat-tab-group [backgroundColor]="background">
-    <mat-tab label="Personal Details">
+  <mat-tab-group [backgroundColor]="background" [selectedIndex]="active" (selectedIndexChange)="onTabChange($event)">
+    <mat-tab label="Personal Details" >
      <ng-template mat-tab-label>Personal Details</ng-template>
       <div class="example-container">
         <table class="example-full-width" cellspacing="10">
@@ -125,6 +125,7 @@
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>Mobile No</mat-label>
                 <input matInput placeholder="Mobile No" formControlName="mobile">
+                
                 <mat-error *ngIf="myError('mobile', 'required')">Mobile No is required</mat-error>
                 <mat-error *ngIf="myError('mobile', 'pattern')">Please enter a valid mobile number</mat-error>
                 <mat-error *ngIf="myError('mobile', 'maxLength')">Please enter a valid mobile number</mat-error>
@@ -177,7 +178,7 @@
         
     </mat-tab>
     <!-- /*-------------------------------------------KYC Details*/ ----------------------------------------------------------------------------------------->
-    <mat-tab label="KYC Details" #tab [disabled]='!tab.isActive'>
+    <mat-tab label="KYC Details">
       <ng-template mat-tab-label >KYC Details</ng-template>
       <div class="example-container">
         <table class="example-full-width" cellspacing="10">

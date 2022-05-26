@@ -1,19 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import {ThemePalette} from '@angular/material/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 
+import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import {ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css']
 })
+// export class MyErrorStateMatcher implements ErrorStateMatcher {
+//   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+//     const isSubmitted = form && form.submitted;
+//     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+//   }
+// }
 export class DetailsComponent implements OnInit {
   
 
   links = ['Personal Details', 'KYC Details', 'Address Details','Additional Details','Nomination Details','Services Required','Submit'];
   activeLink = this.links[0];
+  active=0;
+ 
+
   selected = new FormControl(0);
   background: ThemePalette =  'primary';
  
@@ -72,6 +81,7 @@ export class DetailsComponent implements OnInit {
 });
    
   }
+  
 
   public myError = (controlName: string, errorName: string) =>{
     return this.myForm.controls[controlName].hasError(errorName);
@@ -79,17 +89,15 @@ export class DetailsComponent implements OnInit {
     moveToSelectedTab(tabName: string) {
       for (let i =0; i< document.querySelectorAll('.mat-tab-label-content').length; i++) {
       if ((<HTMLElement>document.querySelectorAll('.mat-tab-label-content')[i]).innerText == tabName) 
-         { 
-           for(let j=i+1;j< document.querySelectorAll('.mat-tab-label-content').length; j++){
-           
-           
-
-           }
-           
+         {
             (<HTMLElement>document.querySelectorAll('.mat-tab-label')[i]).click();
          }
-       }
-
+       
+       
+      }
+    }
+    onTabChange(e: any) {
+      console.log(e);
     }
     homepage(){
       this.router.navigate(['/homepage']);

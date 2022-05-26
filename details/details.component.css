@@ -91,7 +91,7 @@ body, html {
     table-layout: fixed;
     border: #4287f5;
     background-color: white;
-    box-shadow: 1px 1px 5px 2px grey;
+    box-shadow: 1px 1px 8px 1px rgba(192, 192, 192, 0.973);
     border-radius: 5px;
     align-self: center;
 
