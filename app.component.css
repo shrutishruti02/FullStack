@@ -1,0 +1,23 @@
+    h1
+{
+    color:whitesmoke;
+    background-color: aqua;
+    background-image:linear-gradient(to right,black,purple);
+    width:100%;
+    min-height: 150%;
+    
+
+
+}
+
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 150%;
+    background-color:#3f51b5;
+    color: white;
+    text-align: center;
+
+  }

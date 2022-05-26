@@ -8,8 +8,8 @@
 <!-------------------------------------------- Account Details Tab -------------------------------------------------->
 
 <body class="mat-typography mat-app-background">
-  <form [formGroup]="myForm">
-  <mat-tab-group [backgroundColor]="background" [selectedIndex]="active" (selectedIndexChange)="onTabChange($event)">
+  <form [formGroup]="myForm" (ngSubmit)="onClickSubmit(myForm.value)">
+  <mat-tab-group [backgroundColor]="background" [selectedIndex]="active">
     <mat-tab label="Personal Details" >
      <ng-template mat-tab-label>Personal Details</ng-template>
       <div class="example-container">
@@ -61,7 +61,7 @@
             <td>
               <mat-form-field class="example-field-width">
                 <mat-label>Maiden Name(if any)</mat-label>
-                <input matInput placeholder="Maiden Name">
+                <input matInput placeholder="Maiden Name" formControlName="maidenName">
               </mat-form-field>
             </td>
             <td>
@@ -106,7 +106,7 @@
             </td>
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
-                <mat-select placeholder="Marital Status">
+                <mat-select placeholder="Marital Status" formControlName="maritalStatus">
                   <mat-option value="Married">Married</mat-option>
                   <mat-option value="Single">Single</mat-option>
                   <mat-option value="Divorced">Divorced</mat-option>
@@ -118,7 +118,7 @@
             <td>
               <mat-form-field class="example-field-width">
                 <mat-label>Aadhar No(optional)</mat-label>
-                <input matInput placeholder="Aadhar No">
+                <input matInput placeholder="Aadhar No" formControlName="aadharNum">
               </mat-form-field>
             </td>
             <td>
@@ -151,21 +151,21 @@
               <p class="div-text">Father's Name</p>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>Name</mat-label>
-                <input matInput placeholder="Father's Name">
+                <input matInput placeholder="Father's Name" formControlName="fatherName">
               </mat-form-field>
             </td>
             <td>
               <p class="div-text">Mother's Name</p>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>Name</mat-label>
-                <input matInput placeholder="Mother's Name">
+                <input matInput placeholder="Mother's Name" formControlName="motherName">
               </mat-form-field>
             </td>
             <td>
               <p class="div-text">Spouse Name</p>
-              <mat-form-field class="example-field-width" appearance="fill">
+              <mat-form-field class="example-field-width" appearance="fill" >
                 <mat-label>Name</mat-label>
-                <input matInput placeholder="Spouse Name">
+                <input matInput placeholder="Spouse Name"formControlName="spouseName">
               </mat-form-field>
             </td>
           </tr>
@@ -199,18 +199,18 @@
                 <mat-error *ngIf="myError('idType', 'required')">ID Type is mandatory</mat-error>
               </mat-form-field>
             </td>
-            <!-- <td>
+            <td>
                 <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>ID Number</mat-label>
-                <input matInput placeholder="ID Number">
+                <input matInput placeholder="ID Number" formControlName="idNumber">
                 <mat-error *ngIf="myError('idNumber', 'required')">ID Number is mandatory</mat-error>
               </mat-form-field>
-            </td>-->
+            </td>
 
             <td>
-              <mat-form-field class="example-field-width" appearance="fill" >
+              <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>Issued on(dd/mm/yyyy)</mat-label>
-                <input matInput placeholder="Issued on(dd/mm/yyyy)">
+                <input matInput placeholder="Issued on(dd/mm/yyyy)"  formControlName="issuedOn">
               </mat-form-field>
             </td>
           </tr>
@@ -221,14 +221,14 @@
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>PAN No.</mat-label>
-                <input matInput placeholder="PAN No." >
+                <input matInput placeholder="PAN No."  formControlName="panCard" >
                 <mat-error *ngIf="myError('idType', 'required')">ID Type is mandatory</mat-error>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>Name on PAN</mat-label>
-                <input matInput placeholder="Name on PAN">
+                <input matInput placeholder="Name on PAN" formControlName="nameOnPAN">
               </mat-form-field>
             </td>
             <td>
@@ -261,6 +261,7 @@
                 <mat-error *ngIf="myError('city', 'required')">Address is mandatory</mat-error>
               </mat-form-field>
             </td>
+          </tr>
           <tr>
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
@@ -301,6 +302,7 @@
               </mat-radio-group>
             </div>
           </tr>
+          
           </table>
           <div class="outer">
             <div class="inner"><button mat-raised-button class="yn-button" tabindex="-1" (click)='moveToSelectedTab("Personal Details")'>Back</button></div>              
@@ -313,6 +315,41 @@
       <ng-template mat-tab-label>Additional Details</ng-template>
       <div class="example-container">
         <table class="example-full-width" cellspacing="10">
+          <tr>
+            <p class="div-text"> Other Details</p><br>
+            </tr> 
+            <tr>          
+            <td>
+              <mat-form-field class="example-field-width" appearance="fill" >
+              <mat-label>Educational Qualification</mat-label>
+              <input matInput placeholder="Educational Qualification" formControlName="educationalQualification">
+              <mat-error *ngIf="myError('educationalQualification', 'required')">Required</mat-error>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-field-width" appearance="fill">
+              <mat-label>Occupation</mat-label>
+              <input matInput placeholder="Occupation"  formControlName="occupation">
+              <mat-error *ngIf="myError('occupation', 'required')">Required</mat-error>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-field-width" appearance="fill">
+              <mat-label>Annual Income</mat-label>
+              <input matInput placeholder="Annual Income"  formControlName="annualIncome">
+              <mat-error *ngIf="myError('annualIncome', 'required')">Required</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-field-width" appearance="fill">
+              <mat-label>Religion</mat-label>
+              <input matInput placeholder="Religion"  formControlName="religion">
+              <mat-error *ngIf="myError('religion', 'required')">Required</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
           <tr>
          <p class="div-text"> Services Required</p><br>
          
@@ -330,7 +367,7 @@
             </td>
             <td>
               <mat-label>Receive SMS Alerts</mat-label>
-              <mat-radio-group aria-label="Select an option" formControlName="smsAlerts">
+              <mat-radio-group aria-label="  Select an option" formControlName="smsAlerts">
                 <mat-radio-button value="Yes">Yes</mat-radio-button>
                 <mat-radio-button value="No">No</mat-radio-button>
               </mat-radio-group>
@@ -361,7 +398,7 @@
               <mat-label>Name as would appear on Card</mat-label>
               <mat-form-field class="example-field-width" appearance="fill">
                 
-                <input matInput placeholder="Name" formControlGroup="nameOnCard">
+                <input matInput placeholder="Name" formControlName="nameOnCard">
               </mat-form-field>
             </td>
           </tr>
@@ -380,7 +417,7 @@
            <tr>
             <td>
               <mat-label>Nominee Required</mat-label>
-              <mat-radio-group aria-label="Select an option" formControlGroup="nomineeReq">
+              <mat-radio-group aria-label="Select an option" formControlName="nomineeReq">
                 <mat-radio-button color="primary"value="Yes">Yes</mat-radio-button>
                 <mat-radio-button color="primary"value="No">No</mat-radio-button>
               </mat-radio-group>
@@ -390,20 +427,20 @@
            <td>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>Name</mat-label>
-                <input matInput placeholder="Name" formControlGroup="nomineeName">
+                <input matInput placeholder="Name" formControlName="nomineeName">
               </mat-form-field>
             </td>
          
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>Relationship with Applicant</mat-label>
-                <input matInput placeholder="Relationship with Applicant" formControlGroup="nomineeRel">
-              </mat-form-field>
+                <input matInput placeholder="Relationship with Applicant" formControlName="nomineeRel">
+              </mat-form-field> 
             </td>
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>Date of Birth</mat-label>
-                <input matInput placeholder="Date of Birth">
+                <input matInput placeholder="Date of Birth" formControlName="nomineeDOB">
               </mat-form-field>
             </td>
           </tr>
@@ -415,7 +452,7 @@
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>Address Line 1</mat-label>
-                <input matInput placeholder="Address Line 1" formControlGroup="nomineeAddressLine1">
+                <input matInput placeholder="Address Line 1" formControlName="nomineeAddressLine1">
               </mat-form-field>
             </td>
             <td>
@@ -435,7 +472,7 @@
             <td>
               <mat-form-field class="example-field-width" appearance="fill">
                 <mat-label>Pin Code</mat-label>
-                <input matInput placeholder="Address Line 2">
+                <input matInput placeholder="Pincode">
               </mat-form-field>
             </td>
             <td>
@@ -462,74 +499,74 @@
             <div class="div-text" style="color:black">Personal Details</div>
             </tr>
             <tr>
-            <td><mat-label>First Name:Name</mat-label></td>
-              <td><mat-label>Middle Name:Name</mat-label></td>
-              <td><mat-label>Last Name:Name</mat-label></td>
+            <td><mat-label>First Name:  {{this.detailsObj.firstName}}</mat-label></td>
+              <td><mat-label>Middle Name:  {{this.detailsObj.middleName}}</mat-label></td>
+              <td><mat-label>Last Name:  {{this.detailsObj.lastName}}</mat-label></td>
                </tr>
                <tr>
-              <td><mat-label>Maiden Name(if any):Name</mat-label></td>
-              <td><mat-label>Date of Birth:Name</mat-label></td>
-              <td><mat-label>Gender:Name</mat-label></td>
+              <td><mat-label>Maiden Name(if any):  {{this.detailsObj.maidenName}}</mat-label></td>
+              <td><mat-label>Date of Birth:  {{this.detailsObj.dateOfBirth}}</mat-label></td>
+              <td><mat-label>Gender:  {{this.detailsObj.gender}}</mat-label></td>
               </tr>
               <tr>
-              <td><mat-label>Place of Birth:Name</mat-label></td>
-              <td><mat-label>Country of Birth:Name</mat-label></td>
-              <td><mat-label>Marital Status:Name</mat-label></td>
+              <td><mat-label>Place of Birth:  {{this.detailsObj.placeOfBirth}}</mat-label></td>
+              <td><mat-label>Country of Birth:  {{this.detailsObj.countryOfBirth}}</mat-label></td>
+              <td><mat-label>Marital Status:  {{this.detailsObj.maritalStatus}}</mat-label></td>
               </tr>
               <tr>
-              <td><mat-label>Aadhar No(optional):Name</mat-label></td>
-              <td><mat-label>Mobile No(optional):Name</mat-label></td>
-              <td><mat-label>Email ID:Name</mat-label></td>
+              <td><mat-label>Aadhar No(optional):  {{this.detailsObj.aadharNum}}</mat-label></td>
+              <td><mat-label>Mobile No(optional):  {{this.detailsObj.mobile}}</mat-label></td>
+              <td><mat-label>Email ID:  {{this.detailsObj.emailId}}</mat-label></td>
               </tr>
               <hr  width="100%">
               <tr>
                 <div class="div-text" style="color:black">Additional Personal Details</div>
               </tr>
               <tr>
-              <td><mat-label>Father's Name:Name</mat-label></td>
-              <td><mat-label>Mother's Name:Name</mat-label></td>
-              <td><mat-label>Spouse Name:Name</mat-label></td>
+              <td><mat-label>Father's Name:  {{this.detailsObj.fatherName}}</mat-label></td>
+              <td><mat-label>Mother's Name:  {{this.detailsObj.motherName}}</mat-label></td>
+              <td><mat-label>Spouse Name:  {{this.detailsObj.spouseName}}</mat-label></td>
               </tr>
               <hr  width="100%">
               <tr>
                 <div class="div-text" style="color:black">KYC Details</div>
               </tr>
               <tr>
-                <td><mat-label>ID Type:Name</mat-label></td>
-                <td><mat-label>ID Number:Name</mat-label></td>
-                <td><mat-label>Issued on(dd/mm/yyyy):Name</mat-label></td>
+                <td><mat-label>ID Type:  {{this.detailsObj.idType}}</mat-label></td>
+                <td><mat-label>ID Number:  {{this.detailsObj.idNumber}}</mat-label></td>
+                <td><mat-label>Issued on(dd/mm/yyyy):  {{this.detailsObj.issuedOn}}</mat-label></td>
                 </tr>
                 <tr>
-                <td><mat-label>PAN Details:Name</mat-label></td>
-                <td><mat-label>Name on PAN:Name</mat-label></td>
+                <td><mat-label>PAN Details:  {{this.detailsObj.panCard}}</mat-label></td>
+                <td><mat-label>Name on PAN:  {{this.detailsObj.nameOnPAN}}</mat-label></td>
                 </tr>
                 <hr  width="100%">
                 <tr>
                   <div class="div-text" style="color:black">Address Details</div>
               </tr>
               <tr>
-              <td><mat-label>Flat/House No./Floor/Building:Name</mat-label></td>
-              <td><mat-label>Colony/Street/Locality:Name</mat-label></td>
-              <td><mat-label>City/Town/ District:Name</mat-label></td>
+              <td><mat-label>Flat/House No./Floor/Building:  {{this.detailsObj.addressLine1}}</mat-label></td>
+              <td><mat-label>Colony/Street/Locality:  {{this.detailsObj.addressLine2}}</mat-label></td>
+              <td><mat-label>City/Town/ District:  {{this.detailsObj.city}}</mat-label></td>
               </tr>
               <tr>
-              <td><mat-label>State:Name</mat-label></td>
-              <td><mat-label>Pincode:Name</mat-label></td>
-              <td><mat-label>Country:Name</mat-label></td>
+              <td><mat-label>State:  {{this.detailsObj.state}}</mat-label></td>
+              <td><mat-label>Pincode:  {{this.detailsObj.pincode}}</mat-label></td>
+              <td><mat-label>Country:  {{this.detailsObj.country}}</mat-label></td>
               </tr>
               <hr  width="100%">
               <tr>
                 <div class="div-text" style="color:black">Services Required</div>
-              <td><mat-label>Internet Banking:Name</mat-label></td>
-              <td><mat-label>Receive SMS Alerts:Name</mat-label></td>
+              <td><mat-label>Internet Banking:  {{this.detailsObj.inbRights}}</mat-label></td>
+              <td><mat-label>Receive SMS Alerts:  {{this.detailsObj.smsAlerts}}</mat-label></td>
               </tr>
               <tr>
-              <td><mat-label>Cheque Book:Name</mat-label></td>
-              <td><mat-label>Debit Card:Name</mat-label></td>
-              <td><mat-label>Card Type:Name</mat-label></td>
+              <td><mat-label>Cheque Book:  {{this.detailsObj.chequeBook}}</mat-label></td>
+              <td><mat-label>Debit Card:  {{this.detailsObj.debitCard}}</mat-label></td>
+              <td><mat-label>Card Type:  Domestic</mat-label></td>
               </tr>
               <tr>
-              <td><mat-label>Name as would appear on Card:Name</mat-label></td>
+              <td><mat-label>Name as would appear on Card:  {{this.detailsObj.nameOnCard}}</mat-label></td>
               </tr>
               <hr  width="100%">
               <tr>
@@ -537,14 +574,14 @@
               
               </tr>
               <tr>
-              <td><mat-label>Name:Name</mat-label></td>
-              <td><mat-label>Relationship with Applicant:Name</mat-label></td>
-              <td><mat-label>Date of Birth:Name</mat-label></td>
+              <td><mat-label>Name:{{this.detailsObj.nomineeName}}</mat-label></td>
+              <td><mat-label>Relationship with Applicant:{{this.detailsObj.nomineeRel}}</mat-label></td>
+              <td><mat-label>Date of Birth:{{this.detailsObj.nomineeDOB}}</mat-label></td>
               </tr>
               <tr>
-              <td><mat-label>Nominee Address Line 1:Name</mat-label></td>
-              <td><mat-label>Nominee Address Line 2:Name</mat-label></td>
-              <td><mat-label>State:Name</mat-label></td>
+              <td><mat-label>Nominee Address:{{this.detailsObj.nomineeAddressLine1}}</mat-label></td>
+              <td><mat-label>Nominee Address Line 2:Address</mat-label></td>
+              <td><mat-label>State:state</mat-label></td>
               </tr>
               <tr>
               <td><mat-label>Pin Code:Name</mat-label></td>
@@ -553,7 +590,7 @@
               </table>
               <div class="outer">
                 <div class="inner"><button mat-raised-button class="yn-button" tabindex="-1" (click)='moveToSelectedTab("Nomination Details")'>Back</button></div>              
-                <div class="inner"><button mat-raised-button class="yn-button" tabindex="-1" (click)='moveToSelectedTab("Submit")'>Proceed</button> </div>
+                <div class="inner"><button mat-raised-button class="yn-button" tabindex="-1" (click)='addApplicant()'>Submit</button> </div>
                 </div>
               </div>
               </mat-tab>
