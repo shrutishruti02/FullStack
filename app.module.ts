@@ -48,6 +48,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { LogoutComponent } from './logout/logout.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginUserComponent } from './login-user/login-user.component';
+import { SuccessPageComponent } from './success-page/success-page.component';
 
 
 
@@ -81,6 +82,7 @@ import { LoginUserComponent } from './login-user/login-user.component';
     
     LogoutComponent,
          LoginUserComponent,
+         SuccessPageComponent,
     
   ],
   imports: [

@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { DetailsComponent } from './details/details.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { SuccessPageComponent } from './success-page/success-page.component';
 
 const routes: Routes = [
 // {path:'about',
@@ -23,8 +24,8 @@ const routes: Routes = [
 {path:'',component:HomepageComponent},
 {path:'details',component:DetailsComponent},
 {path:'homepage',component:HomepageComponent},
-{path:'loginuser',component:LoginUserComponent}
-
+{path:'loginuser',component:LoginUserComponent},
+{path:'success',component:SuccessPageComponent}
 
 ];
 

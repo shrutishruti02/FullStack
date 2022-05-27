@@ -6,6 +6,7 @@ import {ThemePalette } from '@angular/material/core';
 import { Details } from './details';
 import { ApplicantService } from '../applicant.service';
 import { MyStatus } from '../MyStatus';
+import { SuccessPageComponent } from '../success-page/success-page.component';
 
 
 
@@ -39,6 +40,7 @@ export class DetailsComponent implements OnInit {
    //panCardPattern = "[A-Z]{5}[0-9]{4}[A-Z]{1}";
 
    onClickSubmit(result:any) {
+    this.detailsObj.title=result.title;
     this.detailsObj.firstName = result.firstName;
     this.detailsObj.middleName=result.middleName;
     this.detailsObj.lastName=result.lastName;
@@ -79,12 +81,17 @@ export class DetailsComponent implements OnInit {
     this.detailsObj.nomineeRel=result.nomineeRel;
     this.detailsObj.nomineeDOB=result.nomineeDOB;
     this.detailsObj.nomineeAddressLine1=result.nomineeAddressLine1;
+    this.detailsObj.nomineeAddressLine2=result.nomineeAddressLine2;
+    this.detailsObj.nomineeState=result.nomineeState;
+    this.detailsObj.nomineeCountry=result.nomineeCountry;
+    this.detailsObj.nomineePincode=result.nomineePincode;
       
 
    }
    
   ngOnInit(): void {
     this.myForm=new FormGroup({
+      title:new FormControl('',),
       firstName: new FormControl('', [Validators.required, Validators.maxLength(20)]),
       middleName: new FormControl('', [Validators.required, Validators.maxLength(20)]),
       lastName: new FormControl('', [Validators.required, Validators.maxLength(20)]),
@@ -127,6 +134,11 @@ export class DetailsComponent implements OnInit {
       nomineeRel:new FormControl('', [Validators.required, Validators.maxLength(10)]),
       nomineeName:new FormControl('', [Validators.required]),
       nomineeAddressLine1:new FormControl('', [Validators.required]),
+      nomineeAddressLine2:new FormControl(''),
+      nomineeState:new FormControl(''),
+      nomineeCountry:new FormControl(''),
+      nomineePincode:new FormControl('')
+
 });
   }
   
@@ -144,17 +156,18 @@ export class DetailsComponent implements OnInit {
        
       }
       addApplicant(){
-      this.applicantService.addSingleApplicantService(this.detailsObj).subscribe({
+        this.applicantService.addSingleApplicantService(this.detailsObj).subscribe({
         next:(data:MyStatus) => {
           this.appDetails.push(this.detailsObj);
           this.message=data.message;
           console.log('~next : applicant is added');
           console.log('addAppl() is invoked..', this.message);
+          
         },
         error:(err)=> {
           console.log('~~Error...');
   
-          alert(err);
+          // alert(err);
           this.message=err.error;
           console.log(err);
         },
@@ -162,6 +175,7 @@ export class DetailsComponent implements OnInit {
           console.log('~~~completed...');
         }
       });
+      this.router.navigate(['/success']);
     }
     homepage(){
       this.router.navigate(['/homepage']);
